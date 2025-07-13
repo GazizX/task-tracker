@@ -2,86 +2,52 @@ import { MenuButton, T } from "@admiral-ds/react-ui";
 import type { TaskProps } from "../../types/TaskProps";
 import TaskItem from "../TaskItem";
 import styles from "./TaskList.module.css"
-import { createRenderItems } from "../../utils/renderMenu";
-import {tasks} from "../../mockData/tasks"
-const itemsStatus = [
-  {
-    id: '1',
-    display: 'To Do',
-  },
-  {
-    id: '2',
-    display: 'In Progress',
-  },
-  {
-    id: '3',
-    display: 'Done',
-  }
-];
-const itemsPriority = [
-  {
-    id: '1',
-    display: 'Low',
-  },
-  {
-    id: '2',
-    display: 'Medium',
-  },
-  {
-    id: '3',
-    display: 'High',
-  }
-];
+import { CategoryModel, itemsCategory, itemsPriority, itemsStatus, PriorityModel, StatusModel } from "../../utils/renderMenu";
+import { useTasks } from "../../contexts/TaskContext";
+import { useState } from "react";
+import { getDisplayValue } from "../../utils/getDisplayValue";
 
-const itemsCategory = [
-  {
-    id: '1',
-    display: 'Bug',
-  },
-  {
-    id: '2',
-    display: 'Feature',
-  },
-  {
-    id: '3',
-    display: 'Documentation',
-  },
-  {
-    id: '4',
-    display: 'Refactor',
-  },
-  {
-    id: '5',
-    display: 'Test',
-  }
-];
 
 
 
 export default function TaskList() {
-    const StatusModel = createRenderItems(itemsStatus)
-    const PriorityModel = createRenderItems(itemsPriority)
-    const CategoryModel = createRenderItems(itemsCategory)
+    const {tasks} = useTasks()
+    const [filters, setFilters] = useState({
+      category: "",
+      status: "",
+      priority: ""
+    });
+    const handleFilterChange = (type: keyof typeof filters, value: string) => {
+      setFilters(prev => ({ ...prev, [type]: value }));
+    };
+
+    const filteredTasks = tasks.filter(task => {
+      return (
+        (filters.category === "" || task.category === filters.category) &&
+        (filters.status === "" || task.status === filters.status) &&
+        (filters.priority === "" || task.priority === filters.priority)
+      );
+    });
     return (
       <>
         <header>
           <T as="h1" font="Main/M">Track your tasks</T>
           <div className={styles.filterContainer}>
               <T as="h2" font="Header/H4">Filter</T>
-              <MenuButton items={CategoryModel} dimension="s">
-                by Category
+              <MenuButton items={CategoryModel} dimension="s"  onSelectItem={(id) => handleFilterChange('category', getDisplayValue(itemsCategory, id))}>
+                {filters.category || "by Category"}
               </MenuButton>
-              <MenuButton items={StatusModel} dimension="s">
-                by Status
+              <MenuButton items={StatusModel} dimension="s" onSelectItem={(id) => handleFilterChange('status', getDisplayValue(itemsStatus, id))} >
+                {filters.status || "by Status"}
               </MenuButton>
-              <MenuButton items={PriorityModel} dimension="s">
-                by Priority
+              <MenuButton items={PriorityModel} dimension="s" onSelectItem={(id) => handleFilterChange('priority', getDisplayValue(itemsPriority, id))}>
+                {filters.priority || "by Priority"}
               </MenuButton>
           </div>
         </header>
         <div className={styles.tasksGrid}>
         {
-            tasks.map((task: TaskProps) => (
+            filteredTasks.map((task: TaskProps) => (
                 <TaskItem key={task.id} task={task}/>
             ))
         }

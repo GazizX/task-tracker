@@ -15,3 +15,60 @@ export const createRenderItems = (items: RenderItem[]) => {
           ),
         }));
 }
+
+export const itemsStatus = [
+  {
+    id: '1',
+    display: 'To Do',
+  },
+  {
+    id: '2',
+    display: 'In Progress',
+  },
+  {
+    id: '3',
+    display: 'Done',
+  }
+];
+export const itemsPriority = [
+  {
+    id: '1',
+    display: 'Low',
+  },
+  {
+    id: '2',
+    display: 'Medium',
+  },
+  {
+    id: '3',
+    display: 'High',
+  }
+];
+
+export const itemsCategory = [
+  {
+    id: '1',
+    display: 'Bug',
+  },
+  {
+    id: '2',
+    display: 'Feature',
+  },
+  {
+    id: '3',
+    display: 'Documentation',
+  },
+  {
+    id: '4',
+    display: 'Refactor',
+  },
+  {
+    id: '5',
+    display: 'Test',
+  }
+];
+
+
+export const StatusModel = createRenderItems(itemsStatus)
+export const PriorityModel = createRenderItems(itemsPriority)
+export const CategoryModel = createRenderItems(itemsCategory)

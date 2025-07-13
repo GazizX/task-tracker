@@ -1,6 +1,6 @@
 import type { TaskProps } from "../types/TaskProps";
 
-export const tasks: TaskProps[] = [
+export const initialTasks: TaskProps[] = [
   {
     id: 1,
     title: "Исправить критическую ошибку входа",

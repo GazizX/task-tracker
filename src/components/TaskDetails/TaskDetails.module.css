@@ -18,3 +18,15 @@
         width: 400px;
     }
 }
+
+.editMenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
