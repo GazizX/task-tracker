@@ -2,12 +2,14 @@ import { Button, T, Tag } from "@admiral-ds/react-ui";
 import type {TaskProps} from "../../types/TaskProps";
 import styles from './TaskItem.module.css'
 import { CATEGORY_COLORS, PRIORITY_COLORS, STATUS_COLORS } from "../../constants/colors";
+import { useNavigate } from "react-router-dom";
 
-interface TaskItemProps {
+export interface TaskItemProps {
     task: TaskProps;
 }
 
 export default function TaskItem(task : TaskItemProps) {
+    const navigate = useNavigate()
     const data = task.task
     return (
         <div className={styles.card}>
@@ -49,7 +51,7 @@ export default function TaskItem(task : TaskItemProps) {
                     </Tag>
                 </div>
             </div>
-            <Button className={styles.editButton} appearance="tertiary" dimension="m">
+            <Button className={styles.editButton} appearance="tertiary" dimension="m" onClick={() => navigate(`/task/${data.id}`)}>
                 Edit
             </Button>
         </div>
