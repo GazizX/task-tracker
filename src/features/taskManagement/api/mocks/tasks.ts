@@ -1,6 +1,6 @@
-import type { TaskProps } from "../types/TaskProps";
+import type { Task } from "@entities/task/model/TaskProps";
 
-export const initialTasks: TaskProps[] = [
+export const initialTasks: Task[] = [
   {
     id: 1,
     title: "Исправить критическую ошибку входа",

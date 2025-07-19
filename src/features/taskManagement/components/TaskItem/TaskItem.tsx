@@ -1,11 +1,11 @@
 import { Button, T, Tag } from "@admiral-ds/react-ui";
-import type {TaskProps} from "../../types/TaskProps";
+import type {Task} from "@entities/task/model/TaskProps";
 import styles from './TaskItem.module.css'
-import { CATEGORY_COLORS, PRIORITY_COLORS, STATUS_COLORS } from "../../constants/colors";
+import { CATEGORY_COLORS, PRIORITY_COLORS, STATUS_COLORS } from "../../ui/colors";
 import { useNavigate } from "react-router-dom";
 
 export interface TaskItemProps {
-    task: TaskProps;
+    task: Task;
 }
 
 export default function TaskItem(task : TaskItemProps) {

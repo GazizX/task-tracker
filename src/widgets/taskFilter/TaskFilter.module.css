@@ -1,0 +1,12 @@
+.selectField{
+    width: 220px;
+}
+
+.filterContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @media (max-width: 720px) {
+        flex-direction: column;
+    }
+}

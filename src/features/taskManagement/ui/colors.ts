@@ -1,4 +1,4 @@
-import type { Category, Priority, Status } from "../types/TaskProps";
+import type { Category, Priority, Status } from "../../../entities/task/model/TaskProps";
 
 type ColorVariant = {
   base: string;
