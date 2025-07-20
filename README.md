@@ -4,7 +4,7 @@
  
 *Простое и удобное управление задачами*
 
-**🔗 Демо:** [https://task-tracker-six-wheat.vercel.app](https://task-tracker-six-wheat.vercel.app)
+**🔗 Демо:** [https://task-tracker-six-wheat.vercel.app](https://task-tracker-six-wheat.vercel.app) (необходимо немного подождать, чтобы сервер на Render.com заработал)
 
 ## 🌟 Возможности
 
