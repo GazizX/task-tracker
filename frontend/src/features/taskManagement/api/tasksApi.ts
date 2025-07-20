@@ -3,7 +3,7 @@ import type { Task } from "@entities/task/model/TaskProps";
 
 export const tasksApi = createApi({
   reducerPath: "tasksApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/tasks/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://task-tracker-lhr6.onrender.com" }),
   tagTypes: ["Task"],
   endpoints: (builder) => ({
     getTasks: builder.query<Task[], void>({
