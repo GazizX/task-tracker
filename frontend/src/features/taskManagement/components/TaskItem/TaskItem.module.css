@@ -1,0 +1,42 @@
+.card {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(239, 239, 239);
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
+    @media (max-width: 960px) {
+        width: 350px;
+    }
+    @media (min-width: 960px) {
+        width: 300px;
+    }
+    @media (min-width: 1480px) {
+        width: 350px;
+    }
+    @media (min-width: 1680px) {
+        width: 400px;
+    }
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.fieldContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
